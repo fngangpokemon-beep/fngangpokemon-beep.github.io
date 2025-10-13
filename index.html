@@ -1,0 +1,127 @@
+<!-- index.html (Головна сторінка з сяючим логотипом) -->
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MR.CAT.WEAR - Головна</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .logo img {
+            height: 80px;
+            width: auto;
+            filter: drop-shadow(0 0 10px #ff0000); /* Червоний glow ефект */
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                filter: drop-shadow(0 0 5px #ff0000);
+            }
+            to {
+                filter: drop-shadow(0 0 20px #ff0000);
+            }
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .hero {
+            background: linear-gradient(to right, #ff6b6b, #4ecdc4);
+            text-align: center;
+            padding: 100px 20px;
+            color: white;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.5em;
+        }
+        .cta-button {
+            background-color: #333;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .teaser {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .teaser h2 {
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://via.placeholder.com/200x80/ff0000/000000?text=🖤🐱🔴" alt="Логотип MR.CAT.WEAR - чорний кіт у смокінгу по пояс з червоними окулярами">
+            <p>MR.CAT.WEAR</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="cart.html">Кошик</a></li>
+                <li><a href="#about">Про нас</a></li>
+                <li><a href="#contact">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Стильний одяг для вашого кота</h1>
+        <p>MR.CAT.WEAR — де муркотіння зустрічається з модою</p>
+        <a href="catalog.html" class="cta-button">Переглянути колекцію</a>
+    </section>
+
+    <section class="teaser">
+        <h2>Чому обрати нас?</h2>
+        <p>Унікальний одяг з принтами котів, європейські бренди за доступними цінами. Швидка доставка по Україні!</p>
+        <a href="catalog.html" class="cta-button">До каталогу</a>
+    </section>
+
+    <footer id="contact">
+        <p>&copy; 2025 MR.CAT.WEAR. Усі права захищено.</p>
+        <p>Контакти: info@mrcatwear.ua | +380 (67) 123-45-67</p>
+    </footer>
+</body>
+</html>

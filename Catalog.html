@@ -1,0 +1,208 @@
+<!-- catalog.html (Сторінка каталогу) -->
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MR.CAT.WEAR - Каталог</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .logo img {
+            height: 80px;
+            width: auto;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .products {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .products h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-card h3 {
+            margin: 15px 0;
+        }
+        .product-card p {
+            margin: 0 0 15px;
+        }
+        .price {
+            font-size: 1.5em;
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+        .add-to-cart {
+            background-color: #4ecdc4;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .brands-section {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+        .brands-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+    <script>
+        // Простий JS для додавання до кошика (зберігає в localStorage)
+        function addToCart(productName, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({name: productName, price: price});
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('Товар додано до кошика!');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://via.placeholder.com/200x80?text=Логотип:+Чорний+кіт+у+смокінгу+з+червоними+окулярами" alt="Логотип MR.CAT.WEAR - чорний кіт у смокінгу по пояс з червоними окулярами">
+            <p>MR.CAT.WEAR</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="cart.html">Кошик</a></li>
+                <li><a href="#about">Про нас</a></li>
+                <li><a href="#contact">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="products">
+        <h2>Наша колекція з принтом кота та MR.CAT.WEAR</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250x200?text=Костюм+з+принтом+кота+MR.CAT.WEAR" alt="Костюм з принтом кота">
+                <h3>Класичний костюм з принтом</h3>
+                <p>Ідеально для офіційних мур-вечірок з нашим унікальним принтом</p>
+                <div class="price">1 499 ₴</div>
+                <button onclick="addToCart('Класичний костюм з принтом', 1499)" class="add-to-cart">До кошика</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250x200?text=Светр+з+принтом+кота+MR.CAT.WEAR" alt="Светр з принтом кота">
+                <h3>Затишний светр з принтом</h3>
+                <p>Тепло і комфорт для холодних днів з котячим дизайном</p>
+                <div class="price">999 ₴</div>
+                <button onclick="addToCart('Затишний светр з принтом', 999)" class="add-to-cart">До кошика</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250x200?text=Капелюх+з+принтом+кота+MR.CAT.WEAR" alt="Капелюх з принтом кота">
+                <h3>Капелюх-циліндр з принтом</h3>
+                <p>Для елегантного кота-джентльмена з нашим логотипом</p>
+                <div class="price">799 ₴</div>
+                <button onclick="addToCart('Капелюх-циліндр з принтом', 799)" class="add-to-cart">До кошика</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250x200?text=Плащ+з+принтом+кота+MR.CAT.WEAR" alt="Плащ з принтом кота">
+                <h3>Дощовий плащ з принтом</h3>
+                <p>Захист від злив і стиль на кожен день з котячим мотивом</p>
+                <div class="price">1 199 ₴</div>
+                <button onclick="addToCart('Дощовий плащ з принтом', 1199)" class="add-to-cart">До кошика</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="brands-section">
+        <h2>Інші європейські бренди за приємними цінами</h2>
+        <p style="text-align: center; margin-bottom: 40px;">Ми пропонуємо одяг від популярних європейських брендів: Zara (Іспанія), H&M (Швеція), Mango (Іспанія) та NIKIN (Швейцарія). Ціни доступні, від 500 ₴!</p>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250x200?text=Zara+Футболка" alt="Футболка Zara">
+                <h3>Zara: Базова футболка</h3>
+                <p>Класичний дизайн для щоденного носіння</p>
+                <div class="price">599 ₴</div>
+                <button onclick="addToCart('Zara: Базова футболка', 599)" class="add-to-cart">До кошика</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250x200?text=H&M+Джинси" alt="Джинси H&M">
+                <h3>H&M: Стильні джинси</h3>
+                <p>Комфортні та модні, ідеально для сезону</p>
+                <div class="price">899 ₴</div>
+                <button onclick="addToCart('H&M: Стильні джинси', 899)" class="add-to-cart">До кошика</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250x200?text=Mango+Сукня" alt="Сукня Mango">
+                <h3>Mango: Літня сукня</h3>
+                <p>Легка та елегантна для теплих днів</p>
+                <div class="price">1 299 ₴</div>
+                <button onclick="addToCart('Mango: Літня сукня', 1299)" class="add-to-cart">До кошика</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250x200?text=NIKIN+Еко-Тішорт" alt="Еко-Тішорт NIKIN">
+                <h3>NIKIN: Еко-футболка</h3>
+                <p>Екологічна та стильна, з бонусом для природи</p>
+                <div class="price">699 ₴</div>
+                <button onclick="addToCart('NIKIN: Еко-футболка', 699)" class="add-to-cart">До кошика</button>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>&copy; 2025 MR.CAT.WEAR. Усі права захищено.</p>
+        <p>Контакти: info@mrcatwear.ua | +380 (67) 123-45-67</p>
+    </footer>
+</body>
+</html>
