@@ -1,4 +1,3 @@
-<!-- catalog.html (Сторінка каталогу з дебагом) -->
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -24,7 +23,7 @@
             font-weight: bold;
         }
         .logo img {
-            height: 80px;
+            height: 100px;
             width: auto;
         }
         nav ul {
@@ -107,16 +106,15 @@
         }
     </style>
     <script>
-        // Простий JS для додавання до кошика з дебагом
         function addToCart(productName, price) {
             try {
                 let cart = JSON.parse(localStorage.getItem('cart')) || [];
                 cart.push({name: productName, price: parseFloat(price)});
                 localStorage.setItem('cart', JSON.stringify(cart));
-                console.log('Додано до кошика:', {name: productName, price: price}); // Дебаг
+                console.log('Додано до кошика:', {name: productName, price: price});
                 alert('Товар додано до кошика!');
             } catch (error) {
-                console.error('Помилка localStorage:', error); // Лог помилки
+                console.error('Помилка localStorage:', error);
                 alert('Помилка: ' + error.message);
             }
         }
@@ -125,7 +123,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="https://i.ibb.co/Dfq5KGtB/Chat-GPT-Image-13-2025-13-51-08.png" alt="Логотип MR.CAT.WEAR - чорний кіт у смокінгу по пояс з червоними окулярами">
+            <img src="https://i.ibb.co/Dfq5KGtB/Chat-GPT-Image-13-2025-13-51-08.png" alt="Логотип MR.CAT.WEAR - чорний кіт у смокінгу з червоним метеликом">
             <p>MR.CAT.WEAR</p>
         </div>
         <nav>
@@ -149,11 +147,86 @@
                 <div class="price">1 499 ₴</div>
                 <button onclick="addToCart('Класичний костюм з принтом', 1499)" class="add-to-cart">До кошика</button>
             </div>
-            <!-- Повтори для інших товарів, як раніше... (скопіюй з попереднього коду) -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250x200?text=Светр+з+принтом+кота+MR.CAT.WEAR" alt="Светр з принтом кота">
+                <h3>Затишний светр з принтом</h3>
+                <p>Тепло і комфорт для холодних днів з котячим дизайном</p>
+                <div class="price">999 ₴</div>
+                <button onclick="addToCart('Затишний светр з принтом', 999)" class="add-to-cart">До кошика</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250x200?text=Капелюх+з+принтом+кота+MR.CAT.WEAR" alt="Капелюх з принтом кота">
+                <h3>Капелюх-циліндр з принтом</h3>
+                <p>Для елегантного кота-джентльмена з нашим логотипом</p>
+                <div class="price">799 ₴</div>
+                <button onclick="addToCart('Капелюх-циліндр з принтом', 799)" class="add-to-cart">До кошика</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250x200?text=Плащ+з+принтом+кота+MR.CAT.WEAR" alt="Плащ з принтом кота">
+                <h3>Дощовий плащ з принтом</h3>
+                <p>Захист від злив і стиль на кожен день з котячим мотивом</p>
+                <div class="price">1 199 ₴</div>
+                <button onclick="addToCart('Дощовий плащ з принтом', 1199)" class="add-to-cart">До кошика</button>
+            </div>
+            <!-- Нові позиції -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250x200?text=Худі+з+принтом+кота+MR.CAT.WEAR" alt="Худі з принтом кота">
+                <h3>Зручне худі з принтом</h3>
+                <p>М'яке худі для повсякденного комфорту з нашим котячим принтом</p>
+                <div class="price">1 299 ₴</div>
+                <button onclick="addToCart('Зручне худі з принтом', 1299)" class="add-to-cart">До кошика</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250x200?text=Куртка+з+принтом+кота+MR.CAT.WEAR" alt="Куртка з принтом кота">
+                <h3>Стильна куртка з принтом</h3>
+                <p>Водонепроникна куртка для активного кота з унікальним дизайном</p>
+                <div class="price">1 799 ₴</div>
+                <button onclick="addToCart('Стильна куртка з принтом', 1799)" class="add-to-cart">До кошика</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250x200?text=Кросівки+з+принтом+кота+MR.CAT.WEAR" alt="Кросівки з принтом кота">
+                <h3>Комфортні кросівки з принтом</h3>
+                <p>Легкі кросівки для пригод з принтом MR.CAT.WEAR</p>
+                <div class="price">1 099 ₴</div>
+                <button onclick="addToCart('Комфортні кросівки з принтом', 1099)" class="add-to-cart">До кошика</button>
+            </div>
         </div>
     </section>
 
-    <!-- Решта розділу з брендами, як раніше... -->
+    <section class="brands-section">
+        <h2>Інші європейські бренди за приємними цінами</h2>
+        <p style="text-align: center; margin-bottom: 40px;">Ми пропонуємо одяг від популярних європейських брендів: Zara (Іспанія), H&M (Швеція), Mango (Іспанія) та NIKIN (Швейцарія). Ціни доступні, від 500 ₴!</p>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250x200?text=Zara+Футболка" alt="Футболка Zara">
+                <h3>Zara: Базова футболка</h3>
+                <p>Класичний дизайн для щоденного носіння</p>
+                <div class="price">599 ₴</div>
+                <button onclick="addToCart('Zara: Базова футболка', 599)" class="add-to-cart">До кошика</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250x200?text=H&M+Джинси" alt="Джинси H&M">
+                <h3>H&M: Стильні джинси</h3>
+                <p>Комфортні та модні, ідеально для сезону</p>
+                <div class="price">899 ₴</div>
+                <button onclick="addToCart('H&M: Стильні джинси', 899)" class="add-to-cart">До кошика</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250x200?text=Mango+Сукня" alt="Сукня Mango">
+                <h3>Mango: Літня сукня</h3>
+                <p>Легка та елегантна для теплих днів</p>
+                <div class="price">1 299 ₴</div>
+                <button onclick="addToCart('Mango: Літня сукня', 1299)" class="add-to-cart">До кошика</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250x200?text=NIKIN+Еко-Тішорт" alt="Еко-Тішорт NIKIN">
+                <h3>NIKIN: Еко-футболка</h3>
+                <p>Екологічна та стильна, з бонусом для природи</p>
+                <div class="price">699 ₴</div>
+                <button onclick="addToCart('NIKIN: Еко-футболка', 699)" class="add-to-cart">До кошика</button>
+            </div>
+        </div>
+    </section>
 
     <footer id="contact">
         <p>&copy; 2025 MR.CAT.WEAR. Усі права захищено.</p>
