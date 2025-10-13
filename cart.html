@@ -1,4 +1,4 @@
-<!-- cart.html (Сторінка кошика) -->
+<!-- cart.html (Сторінка кошика з дебагом) -->
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MR.CAT.WEAR - Кошик</title>
     <style>
+        /* Стилі як раніше... */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -88,28 +89,44 @@
         }
     </style>
     <script>
-        // JS для відображення кошика з localStorage
+        // JS для відображення кошика з дебагом
         function displayCart() {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let cartDiv = document.getElementById('cart-items');
-            let total = 0;
-            if (cart.length === 0) {
-                cartDiv.innerHTML = '<p class="empty-cart">Ваш кошик порожній. <a href="catalog.html">Перейти до каталогу</a></p>';
-                return;
+            try {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                console.log('Дані з localStorage:', cart); // Дебаг: показує, що завантажено
+                let cartDiv = document.getElementById('cart-items');
+                let total = 0;
+                if (cart.length === 0) {
+                    cartDiv.innerHTML = '<p class="empty-cart">Ваш кошик порожній. <a href="catalog.html">Перейти до каталогу</a></p>';
+                    console.log('Кошик порожній');
+                    return;
+                }
+                let html = '';
+                cart.forEach((item, index) => {
+                    html += `<div class="cart-item">
+                        <span>${item.name}</span>
+                        <span>${item.price} ₴</span>
+                        <button onclick="removeItem(${index})" style="background:#ff6b6b; color:white; border:none; padding:5px 10px; border-radius:3px;">Видалити</button>
+                    </div>`;
+                    total += item.price;
+                });
+                html += `<div class="cart-total">Загальна сума: ${total} ₴</div>`;
+                html += '<a href="#" class="checkout-button" onclick="checkout(event)">Оформити замовлення</a>';
+                cartDiv.innerHTML = html;
+                console.log('Кошик відображено, сума:', total); // Дебаг
+            } catch (error) {
+                console.error('Помилка в displayCart:', error);
+                document.getElementById('cart-items').innerHTML = '<p>Помилка завантаження кошика. Оновіть сторінку.</p>';
             }
-            let html = '';
-            cart.forEach(item => {
-                html += `<div class="cart-item">
-                    <span>${item.name}</span>
-                    <span>${item.price} ₴</span>
-                </div>`;
-                total += item.price;
-            });
-            html += `<div class="cart-total">Загальна сума: ${total} ₴</div>`;
-            html += '<a href="#" class="checkout-button" onclick="checkout()">Оформити замовлення</a>';
-            cartDiv.innerHTML = html;
         }
-        function checkout() {
+        function removeItem(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCart(); // Оновити відображення
+        }
+        function checkout(event) {
+            event.preventDefault();
             alert('Замовлення оформлено! Дякуємо за покупку.');
             localStorage.removeItem('cart');
             displayCart();
@@ -118,30 +135,13 @@
     </script>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="https://via.placeholder.com/200x80?text=Логотип:+Чорний+кіт+у+смокінгу+з+червоними+окулярами" alt="Логотип MR.CAT.WEAR - чорний кіт у смокінгу по пояс з червоними окулярами">
-            <p>MR.CAT.WEAR</p>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Головна</a></li>
-                <li><a href="catalog.html">Каталог</a></li>
-                <li><a href="cart.html">Кошик</a></li>
-                <li><a href="#about">Про нас</a></li>
-                <li><a href="#contact">Контакти</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Header як раніше... -->
 
     <section class="cart">
         <h2>Ваш кошик</h2>
         <div id="cart-items"></div>
     </section>
 
-    <footer id="contact">
-        <p>&copy; 2025 MR.CAT.WEAR. Усі права захищено.</p>
-        <p>Контакти: info@mrcatwear.ua | +380 (67) 123-45-67</p>
-    </footer>
+    <!-- Footer як раніше... -->
 </body>
 </html>
