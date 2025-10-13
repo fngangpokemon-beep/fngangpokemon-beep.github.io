@@ -1,0 +1,147 @@
+<!-- cart.html (Сторінка кошика) -->
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MR.CAT.WEAR - Кошик</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .logo img {
+            height: 80px;
+            width: auto;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .cart {
+            padding: 50px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .cart h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .cart-item {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cart-total {
+            font-size: 1.5em;
+            text-align: center;
+            margin: 20px 0;
+            color: #ff6b6b;
+        }
+        .checkout-button {
+            background-color: #4ecdc4;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .empty-cart {
+            text-align: center;
+            font-size: 1.2em;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+    <script>
+        // JS для відображення кошика з localStorage
+        function displayCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartDiv = document.getElementById('cart-items');
+            let total = 0;
+            if (cart.length === 0) {
+                cartDiv.innerHTML = '<p class="empty-cart">Ваш кошик порожній. <a href="catalog.html">Перейти до каталогу</a></p>';
+                return;
+            }
+            let html = '';
+            cart.forEach(item => {
+                html += `<div class="cart-item">
+                    <span>${item.name}</span>
+                    <span>${item.price} ₴</span>
+                </div>`;
+                total += item.price;
+            });
+            html += `<div class="cart-total">Загальна сума: ${total} ₴</div>`;
+            html += '<a href="#" class="checkout-button" onclick="checkout()">Оформити замовлення</a>';
+            cartDiv.innerHTML = html;
+        }
+        function checkout() {
+            alert('Замовлення оформлено! Дякуємо за покупку.');
+            localStorage.removeItem('cart');
+            displayCart();
+        }
+        window.onload = displayCart;
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://via.placeholder.com/200x80?text=Логотип:+Чорний+кіт+у+смокінгу+з+червоними+окулярами" alt="Логотип MR.CAT.WEAR - чорний кіт у смокінгу по пояс з червоними окулярами">
+            <p>MR.CAT.WEAR</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="cart.html">Кошик</a></li>
+                <li><a href="#about">Про нас</a></li>
+                <li><a href="#contact">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="cart">
+        <h2>Ваш кошик</h2>
+        <div id="cart-items"></div>
+    </section>
+
+    <footer id="contact">
+        <p>&copy; 2025 MR.CAT.WEAR. Усі права захищено.</p>
+        <p>Контакти: info@mrcatwear.ua | +380 (67) 123-45-67</p>
+    </footer>
+</body>
+</html>
