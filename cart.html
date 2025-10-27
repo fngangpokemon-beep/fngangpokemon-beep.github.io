@@ -1,4 +1,4 @@
-<!-- cart.html (Сторінка кошика з дебагом) -->
+
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MR.CAT.WEAR - Кошик</title>
     <style>
-        /* Стилі як раніше... */
+       
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -89,11 +89,11 @@
         }
     </style>
     <script>
-        // JS для відображення кошика з дебагом
+        
         function displayCart() {
             try {
                 let cart = JSON.parse(localStorage.getItem('cart')) || [];
-                console.log('Дані з localStorage:', cart); // Дебаг: показує, що завантажено
+                console.log('Дані з localStorage:', cart); 
                 let cartDiv = document.getElementById('cart-items');
                 let total = 0;
                 if (cart.length === 0) {
@@ -113,7 +113,7 @@
                 html += `<div class="cart-total">Загальна сума: ${total} ₴</div>`;
                 html += '<a href="#" class="checkout-button" onclick="checkout(event)">Оформити замовлення</a>';
                 cartDiv.innerHTML = html;
-                console.log('Кошик відображено, сума:', total); // Дебаг
+                console.log('Кошик відображено, сума:', total); 
             } catch (error) {
                 console.error('Помилка в displayCart:', error);
                 document.getElementById('cart-items').innerHTML = '<p>Помилка завантаження кошика. Оновіть сторінку.</p>';
@@ -123,7 +123,7 @@
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             cart.splice(index, 1);
             localStorage.setItem('cart', JSON.stringify(cart));
-            displayCart(); // Оновити відображення
+            displayCart(); 
         }
         function checkout(event) {
             event.preventDefault();
@@ -135,13 +135,14 @@
     </script>
 </head>
 <body>
-    <!-- Header як раніше... -->
+    
 
     <section class="cart">
         <h2>Ваш кошик</h2>
         <div id="cart-items"></div>
     </section>
 
-    <!-- Footer як раніше... -->
+    
 </body>
 </html>
+
