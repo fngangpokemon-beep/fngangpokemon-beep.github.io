@@ -1,38 +1,55 @@
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("DOMContentLoaded", function() {
 
-    console.log("JS підключений ✅");
+    alert("Ласкаво просимо до MR.CAT.WEAR 🐱 Стиль як у кота!");
 
+    // ================== КНОПКА ВГОРУ ==================
     const scrollBtn = document.createElement("button");
-    scrollBtn.innerHTML = "⬆";
+    scrollBtn.textContent = "⬆ Вгору";
     scrollBtn.id = "scrollTopBtn";
     document.body.appendChild(scrollBtn);
 
+    // стилі кнопки
     scrollBtn.style.position = "fixed";
-    scrollBtn.style.bottom = "20px";
-    scrollBtn.style.right = "20px";
-    scrollBtn.style.padding = "15px";
-    scrollBtn.style.background = "#000";
-    scrollBtn.style.color = "#fff";
+    scrollBtn.style.bottom = "30px";
+    scrollBtn.style.right = "30px";
+    scrollBtn.style.padding = "10px 15px";
+    scrollBtn.style.backgroundColor = "#333";
+    scrollBtn.style.color = "white";
     scrollBtn.style.border = "none";
-    scrollBtn.style.borderRadius = "50%";
-    scrollBtn.style.fontSize = "20px";
+    scrollBtn.style.borderRadius = "5px";
     scrollBtn.style.cursor = "pointer";
     scrollBtn.style.display = "none";
-    scrollBtn.style.zIndex = "99999";
+    scrollBtn.style.zIndex = "1000";
 
-    window.addEventListener("scroll", function () {
-        if (window.pageYOffset > 200) {
+    // показ кнопки при скролі
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
             scrollBtn.style.display = "block";
         } else {
             scrollBtn.style.display = "none";
         }
     });
 
-    scrollBtn.onclick = function () {
+    // прокрутка вгору
+    scrollBtn.addEventListener("click", () => {
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
-    };
+    });
+
+    // ================== АНІМАЦІЯ КНОПОК ==================
+    const buttons = document.querySelectorAll(".cta-button");
+
+    buttons.forEach(button => {
+        button.addEventListener("mouseenter", () => {
+            button.style.transform = "scale(1.1)";
+            button.style.transition = "0.3s";
+        });
+
+        button.addEventListener("mouseleave", () => {
+            button.style.transform = "scale(1)";
+        });
+    });
 
 });
