@@ -1,4 +1,4 @@
-<script>
+// cart.js
 function displayCart() {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     let cartDiv = document.getElementById('cart-items');
@@ -10,10 +10,8 @@ function displayCart() {
     }
 
     let html = '';
-
     cart.forEach((item, index) => {
         if (!item.quantity) item.quantity = 1;
-
         html += `
         <div class="cart-item">
             <div>
@@ -30,8 +28,8 @@ function displayCart() {
     });
 
     html += <div class="cart-total">Загальна сума: ${total} ₴</div>;
-    html += <a href="#" class="checkout-button" onclick="checkout(event)">Оформити замовлення</a>;
-    html += <br><br><button onclick="clearCart()">Очистити кошик</button>;
+    html += '<a href="#" class="checkout-button" onclick="checkout(event)">Оформити замовлення</a>';
+    html += '<br><br><button onclick="clearCart()">Очистити кошик</button>';
 
     cartDiv.innerHTML = html;
 }
@@ -39,11 +37,7 @@ function displayCart() {
 function changeQty(index, value) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart[index].quantity += value;
-
-    if (cart[index].quantity <= 0) {
-        cart[index].quantity = 1;
-    }
-
+    if (cart[index].quantity <= 0) cart[index].quantity = 1;
     localStorage.setItem('cart', JSON.stringify(cart));
     displayCart();
 }
@@ -72,4 +66,3 @@ function checkout(event) {
 }
 
 window.onload = displayCart;
-</script>
