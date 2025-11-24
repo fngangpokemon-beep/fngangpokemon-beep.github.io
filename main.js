@@ -1,6 +1,6 @@
 // Вітальне повідомлення
 window.onload = function() {
-    alert("Ласкаво просимо до MR.CAT.WEAR 🐱 Стиль для вашого улюбленця!");
+    alert("Ласкаво просимо до MR.CAT.WEAR 🐱 Стиль як у кота!");
 };
 
 
@@ -53,4 +53,5 @@ buttons.forEach(button => {
     button.addEventListener("mouseleave", () => {
         button.style.transform = "scale(1)";
     });
+
 });
