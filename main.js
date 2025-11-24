@@ -2,7 +2,7 @@ window.addEventListener("DOMContentLoaded", function() {
 
     alert("Ласкаво просимо до MR.CAT.WEAR 🐱 Стиль як у кота!");
 
-    // ================== КНОПКА ВГОРУ ==================
+    // Кнопка вгору
     const scrollBtn = document.createElement("button");
     scrollBtn.textContent = "⬆ Вгору";
     scrollBtn.id = "scrollTopBtn";
@@ -18,19 +18,10 @@ window.addEventListener("DOMContentLoaded", function() {
     scrollBtn.style.border = "none";
     scrollBtn.style.borderRadius = "5px";
     scrollBtn.style.cursor = "pointer";
-    scrollBtn.style.display = "none";
+    scrollBtn.style.display = "block"; // кнопка завжди видима
     scrollBtn.style.zIndex = "1000";
 
-    // показ кнопки при скролі
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-            scrollBtn.style.display = "block";
-        } else {
-            scrollBtn.style.display = "none";
-        }
-    });
-
-    // прокрутка вгору
+    // прокрутка вгору при натисканні
     scrollBtn.addEventListener("click", () => {
         window.scrollTo({
             top: 0,
@@ -38,7 +29,7 @@ window.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // ================== АНІМАЦІЯ КНОПОК ==================
+    // анімація кнопок
     const buttons = document.querySelectorAll(".cta-button");
 
     buttons.forEach(button => {
