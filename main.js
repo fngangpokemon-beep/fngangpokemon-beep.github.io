@@ -1,55 +1,15 @@
-window.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("JS працює"); // перевірка
 
-    alert("Ласкаво просимо до MR.CAT.WEAR 🐱 Стиль для вашого улюбленця!");
-
-    // Кнопка вгору
-    const scrollBtn = document.createElement("button");
-    scrollBtn.textContent = "⬆ Вгору";
-    scrollBtn.id = "scrollTopBtn";
-    document.body.appendChild(scrollBtn);
-
-    // стилі кнопки
-    scrollBtn.style.position = "fixed";
-    scrollBtn.style.bottom = "30px";
-    scrollBtn.style.right = "30px";
-    scrollBtn.style.padding = "10px 15px";
-    scrollBtn.style.backgroundColor = "#333";
-    scrollBtn.style.color = "white";
-    scrollBtn.style.border = "none";
-    scrollBtn.style.borderRadius = "5px";
-    scrollBtn.style.cursor = "pointer";
-    scrollBtn.style.display = "none";
-    scrollBtn.style.zIndex = "1000";
-
-    // показ кнопки при скролі
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-            scrollBtn.style.display = "block";
-        } else {
-            scrollBtn.style.display = "none";
-        }
-    });
-
-    // прокрутка вгору
-    scrollBtn.addEventListener("click", () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
-
-    // Анімація кнопок
-    const buttons = document.querySelectorAll(".cta-button");
-
-    buttons.forEach(button => {
-        button.addEventListener("mouseenter", () => {
-            button.style.transform = "scale(1.1)";
-            button.style.transition = "0.3s";
-        });
-
-        button.addEventListener("mouseleave", () => {
-            button.style.transform = "scale(1)";
-        });
-    });
-
+    const btn = document.createElement("button");
+    btn.innerText = "⬆";
+    btn.style.position = "fixed";
+    btn.style.bottom = "20px";
+    btn.style.right = "20px";
+    btn.style.padding = "10px";
+    btn.style.backgroundColor = "red";
+    btn.style.color = "white";
+    btn.style.zIndex = "9999";
+    document.body.appendChild(btn);
+    btn.style.display = "block"; // одразу показуємо, без скролу
 });
